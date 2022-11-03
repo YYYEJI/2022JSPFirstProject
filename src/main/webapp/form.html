@@ -1,0 +1,78 @@
+
+<html>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        padding: 3px 6px;
+    }
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<h3>Enter your Information</h3>
+<form name="form1" action="form_ok.jsp" onsubmißt="return validateFrom()" method="post">
+    - Name: <input type="text" name="name"><br>
+    - Age: <input type="text" name="age"><br>
+    - Major: <input type="text" name="major"><br>
+    - RC: <input type="text" name="rc"><br>
+    - Phone number: <input type="text" name="phone"><br>
+    - Content: <textarea name="content" cols='20' rows='5'></textarea><br>
+
+    - Programming language:
+    <input type="checkbox" name="programing1" value="python"> Python
+    <input type="checkbox" name="programing2" value="java"> Java
+    <input type="checkbox" name="programing3" value="c"> C
+    <br>
+    - Regin:
+    <select id="resident" class="test" name="region">
+        <option value="Seoul">Seoul</option>
+        <option value="Daegu">Daegu</option>
+        <option value="Busan">Busan</option>
+    </select><br>
+    - Gender: <br>
+    <fieldset>
+        <legend>Choose your gender</legend> <br>
+        <input type="radio" name="gender" id="radio1" value="M"><label for="radio1">M</label>
+        <input type="radio" name="gender" id="radio2" value="F" checked><label for="radio2">F</label>
+    </fieldset> <br>
+    - Birthday: <input name="birthday" type="date"/><br><br>
+    <input type="submit" value="저장">
+
+
+</form>
+</body>
+<script>
+    function validateFrom() {
+        var subject = document.form1.subject;
+        if (subject.value == "") {
+            alert("제목을 입력하세요");
+            subject.focus();
+            return false;
+        }
+        var writer = document.form1.writer.value;
+        if (writer == "") {
+            alert("이름을 입력하세요");
+            subject.focus();
+            return false;
+        }
+
+        if (writer.length < 2) {
+            alert("이름은 2글자이상 입력하세요");
+            writer.focus();
+            return false;
+        }
+
+        var ele = document.getElementsByName('gender');
+        for (var i = 0; i < ele.length; i++) {
+            ele[i].checked = false; // checked 속성에 false 값을 대입하면 체크된 라디오 버튼이 해제된다
+        }
+
+    }
+
+</script>
+</html>
